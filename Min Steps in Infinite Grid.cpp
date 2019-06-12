@@ -1,5 +1,3 @@
-//This solution follows Kadane's algorithm to find the maximum contiguous subarray
-
 #include<iostream>
 #include<vector>
 
