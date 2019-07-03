@@ -15,7 +15,7 @@ int maxsProd(vector<int> &A)
 		{
 			if(A[i]<A[j])
 			{
-				a=j+1;
+				a=j;
 				break;
 			}
 		}
@@ -23,7 +23,7 @@ int maxsProd(vector<int> &A)
 		{
 			if(A[j]>A[i])
 			{
-				b=j+1;
+				b=j;
 				break;
 			}
 		}
