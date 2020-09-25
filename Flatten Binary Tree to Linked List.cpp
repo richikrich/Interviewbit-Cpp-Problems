@@ -15,27 +15,31 @@ using namespace std;
  * };
  */
 
+
+
 TreeNode* Solution::flatten(TreeNode* A) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
-    stack<TreeNode* > nodes;
-    TreeNode* temp;
+    /**
+        The idea is to alter the existing tree while performing in-order traversal, thus saving memory. Since the right nodes are
+        already saved in the stack, the rest of the tree is well preserved.
+    **/
     TreeNode* curr=A;
-    if(A->right) nodes.push(A->right);
-    if(A->left) nodes.push(A->left);
-    while(!nodes.empty())
+    TreeNode* temp;
+    stack<TreeNode* > st;
+    if(A->right) st.push(A->right);
+    if(A->left) st.push(A->left);
+    while(!st.empty())
     {
-        temp=nodes.top();
-        nodes.pop();
+        temp=st.top();
         curr->right=temp;
         curr->left=nullptr;
         curr=curr->right;
-        if(temp->right) nodes.push(temp->right);
-        if(temp->left) nodes.push(temp->left);
+        st.pop();
+        if(temp->right) st.push(temp->right);
+        if(temp->left) st.push(temp->left);
     }
+
     curr->left=nullptr;
     curr->right=nullptr;
+
     return A;
 }
