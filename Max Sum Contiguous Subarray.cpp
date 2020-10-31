@@ -8,14 +8,16 @@ using namespace std;
 
 int maxSubArraySum(vector<int> &A)
 {
-	int global_max=0; int local_max=0; //global_max=max_so_far and local_max=max_ending_here
-	for(int i=0; i<A.size(); i++)
-	{
-		if(local_max<0) {local_max=0;}
-		local_max+=A[i];
-		if(local_max>global_max) {global_max=local_max;}
-	}
-	return global_max;
+	int maxSoFar=A[0];
+    int currMax=A[0];
+    
+    for(int i=1; i<A.size(); i++)
+    {
+        currMax=max(A[i],currMax+A[i]);
+        maxSoFar=max(maxSoFar, currMax); //stores and checks maximum values found before this
+    }
+    
+    return maxSoFar;
 }
 
 
