@@ -6,7 +6,7 @@
  * 1. (A[i]-i)-(A[j]-[j]) 
  * 2. -(A[i]-i)+(A[j]-[j]) 
  * 3. (A[i]+i)-(A[j]+j) 
- * 4. (A[i]+i)-(A[j]+j)
+ * 4. -(A[i]+i)+(A[j]+j)
  * That is, the maximum differenc is the maximum of two values: max((A[i] + i) – (A[j] + j)) and max((A[i] – i) – (A[j] – j)). 
  * */
 
